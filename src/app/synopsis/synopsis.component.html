@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1>{{ movie.Title }}</h1></mat-card-title
+    >
+  </mat-card-header>
+  <mat-card-content>{{ movie.Description }}</mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="closeDialog()">
+      Close
+    </button>
+  </mat-card-actions>
+</mat-card>

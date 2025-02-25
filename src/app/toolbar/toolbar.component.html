@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+  <span>CINE VERSE</span>
+  <span class="spacer"></span>
+  <span class="spacer"></span>
+  <button
+    mat-button
+    [class.active]="isOnMoviesRoute()"
+    (click)="navigateToMovies()"
+  >
+    Movies
+  </button>
+  <button
+    mat-button
+    [class.active]="isOnProfileRoute()"
+    (click)="navigateToProfile()"
+  >
+    My Profile
+  </button>
+
+  <button mat-button (click)="navigateToWelcome()">Logout</button>
+</mat-toolbar>
+
+<!-- search bar commented for a later implementation -->
+
+<!-- <div class="search-container">
+    <input type="text" class="search-input" placeholder="Search for a movie" />
+    <button class="search-button">
+      <i class="material-icons">search</i>
+    </button>
+  </div> -->
