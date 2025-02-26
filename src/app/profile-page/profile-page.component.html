@@ -1,0 +1,63 @@
+<app-toolbar></app-toolbar>
+
+<h1>
+  Hello <span class="userName">{{ username }}!</span>
+</h1>
+
+<mat-tab-group>
+  <mat-tab label="My list of favorite movies">
+    <div class="movie-grid">
+      <ng-container *ngIf="favorites.length > 0; else noFavorites">
+        <mat-card *ngFor="let movie of favorites; let i = index">
+          <mat-dialog-content>
+            <mat-card-header>
+              <mat-card-title>{{ movie.Title }}</mat-card-title>
+              <mat-card-subtitle
+                >Directed by: {{ movie.Director }}</mat-card-subtitle
+              >
+              <mat-card-subtitle>{{ movie.Genre }}</mat-card-subtitle>
+            </mat-card-header>
+
+            <img
+              mat-card-image
+              src="{{ movie.ImgPath }}"
+              alt="{{ movie.Title }}"
+              width="{{ 230 }}"
+            />
+            <mat-card-actions>
+              <button
+                mat-button
+                color="primary"
+                (click)="openDirectorDialog(movie)"
+              >
+                Director
+              </button>
+              <button
+                mat-button
+                color="primary"
+                (click)="openSynopsisDialog(movie)"
+              >
+                Synopsis
+              </button>
+              <button
+                class="heart-icon"
+                mat-icon-button
+                (click)="removeTitleFromFavorites(movie)"
+              >
+                <mat-icon>{{ "favorite" }}</mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-dialog-content>
+        </mat-card>
+      </ng-container>
+      <ng-template #noFavorites>
+        <p class="no-favorites-message">
+          Ups, you don't have any favorite movies. Go ahead and add some!
+        </p>
+      </ng-template>
+    </div>
+  </mat-tab>
+  <mat-tab label="Update my profile">
+    <app-update-user-form></app-update-user-form>
+  </mat-tab>
+</mat-tab-group>

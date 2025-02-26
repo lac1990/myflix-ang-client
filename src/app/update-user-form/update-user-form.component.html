@@ -1,20 +1,19 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Sign Up!</mat-card-title>
-  </mat-card-header>
+<mat-card class="update-profile-card">
+  <!-- <mat-card-header>
+    <mat-card-title>Update profile information</mat-card-title>
+  </mat-card-header> -->
   <mat-card-content>
-    <form>
-      <mat-form-field>
+    <form class="update-profile-form">
+      <mat-form-field class="form-field">
         <input
           matInput
           [(ngModel)]="userData.UserName"
           placeholder="Username"
           type="text"
           name="Username"
-          required
         />
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field class="form-field">
         <input
           matInput
           [(ngModel)]="userData.Password"
@@ -24,17 +23,16 @@
           required
         />
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field class="form-field">
         <input
           matInput
           [(ngModel)]="userData.Email"
           type="email"
           placeholder="Email"
           name="Email"
-          required
         />
       </mat-form-field>
-      <mat-form-field>
+      <mat-form-field class="form-field">
         <input
           matInput
           [(ngModel)]="userData.Birthdate"
@@ -46,8 +44,14 @@
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button (click)="registerUser()" color="primary">
-      Sign Up
+    <button
+      mat-raised-button
+      (click)="updateUser()"
+      color="primary"
+      style="margin-right: 10px"
+    >
+      Update
     </button>
+    <app-delete-user></app-delete-user>
   </mat-card-actions>
 </mat-card>
